@@ -1,0 +1,35 @@
+<div class="container">
+
+
+  <div class="alert alert-danger" *ngIf="!usuarioForm.valid && usuarioForm.touched">
+    Preencha todos os campos corretamente
+  </div>
+  <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="salvar(usuarioForm)">
+    <div class="form-group" [class.has-danger]="!nomeForm.valid &&  nomeForm.touched">
+      <label class="form-control-label">Nome</label>
+      <input type="text" name="primeiroNome" class="form-control" required minlength="3"
+       [(ngModel)]="cliente.nome" #nomeForm="ngModel">
+       <div *ngIf="!nomeForm.valid &&  nomeForm.touched" class="form-control-feedback">Inform um nome valido</div>
+       <!-- touched= ja foi tocado
+       pristine = está na condincao original, intacto
+       dirty = ja foi mexido -->
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label">E-mail</label>
+      <input type="text" name="email" class="form-control" [(ngModel)]="cliente.email" required email>
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label">Profissão</label>
+      <select name="profissao" class="form-control" [(ngModel)]="cliente.profissao" required>
+        <option value="">Selecione</option>
+        <option *ngFor="let profissao of profissoes" [value]="profissao">{{ profissao}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!usuarioForm.valid">Save</button>
+
+  </form>
+
+</div>

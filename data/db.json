@@ -1,0 +1,16 @@
+{
+  "cidades": [
+    {
+      "nome": "São Luis",
+      "id": 3
+    },
+    {
+      "nome": "Bacabal",
+      "id": 4
+    },
+    {
+      "nome": "campo grande",
+      "id": 5
+    }
+  ]
+}
